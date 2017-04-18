@@ -9,7 +9,7 @@ class GeocodingController < ApplicationController
   def street_to_coords
     @street_address = params[:user_street_address]
 
-   url="http://maps.googleapis.com/maps/api/geocode/json?address="+@street_address.downcase.strip.gsub(" ","+")+"&sensor=false"
+   url="http://maps.googleapis.com/maps/api/geocode/json?address="+@street_address.downcase.strip.gsub(" ","+")
 
    parsed_data = JSON.parse(open(url).read)
 

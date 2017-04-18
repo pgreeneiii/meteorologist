@@ -56,7 +56,7 @@ RSpec.configure do |config|
     @lat = '38.8977332'
     @lng = '-77.0365305'
 
-    address_regex = /1600.*Pennsylvania.*Ave.*NW/
+    address_regex = /1600.*Pennsylvania.*Ave.*NW/i
     maps_url = /.*maps.googleapis.com\/maps\/api\/geocode\/json.address=#{Regexp.new(address_regex)}/
     stub_request(:any, maps_url).to_return(body: File.new('spec/maps_response_body.txt'), status: 200)
 
