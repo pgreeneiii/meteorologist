@@ -50,7 +50,7 @@ The first example they give is
 
 (I have removed the part about the API key from the end of the URL; we don't need one, for now.) Paste that URL into a Chrome tab; you should see something like this:
 
-<img src='http://ask.initialversion.com/uploads/default/70/a1f0652613458d37.png' width="690" height="412">
+   <img src='http://ask.initialversion.com/uploads/default/70/a1f0652613458d37.png' width="690" height="412">
 
 I folded away the `address_components` section to make the value of the `geometry` key stand out, since that is where our target lives: the `lat` and `lng` keys within the `location` hash. Notice that JSON uses curly braces for Hashes and square brackets for Arrays just like Ruby does.
 
