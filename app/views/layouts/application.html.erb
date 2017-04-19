@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Meteorologist</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
+   <title>TEST Meteorologist</title>
+   <%= stylesheet_link_tag    'application', media: 'all' %>
+   <%= javascript_include_tag 'application' %>
+   <%= csrf_meta_tags %>
+
+   <!-- Connect to Bootstrap CSS -->
+   <!-- <link rel="stylesheet" href="/css/bootstrap.css"> -->
+
+   <!-- Connect to jQuery (required before Bootstrap Javascript) -->
+   <!-- <script src="/css/bootstrap/jquery-2.2.2.min.js"></script> -->
+
+   <!-- Connect to Bootstrap Javascript -->
+   <!-- <script src="/css/bootstrap/js/bootstrap.js"></script> -->
+
+   <!-- These meta tags make Bootstrap responsive and more accessible -->
+   <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+   <!-- Link to Google Font -->
+   <!-- <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One" rel="stylesheet"> -->
+
+   <style>
+   #map {
+      height: 400px;
+   }
+   </style>
+
 </head>
+
 <body>
+   <nav>
+      <ul>
+         <li><a href="/street_to_coords/new">Street &rarr; Coords</a></li>
+         <li><a href="/coords_to_weather/new">Coords &rarr; Weather</a></li>
+         <li><a href="/street_to_weather/new">Street &rarr; Weather </a></li>
+      </ul>
+   </nav>
 
-<nav>
-  <ul>
-    <li><a href="/street_to_coords/new">Street &rarr; Coords</a></li>
-    <li><a href="/coords_to_weather/new">Coords &rarr; Weather</a></li>
-    <li><a href="/street_to_weather/new">Street &rarr; Weather</a></li>
-  </ul>
-</nav>
+   <script>
+   var map;
+   function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: <%= @lat %>, lng: <%= @lng %>},
+         zoom: 8
+      });
+   }
+   </script>
+   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWGHVGFQTqoawKGYBd62dfOHUxJxFL9R4&callback=initMap"
+   async defer></script>
 
-<%= yield %>
+   <%= yield %>
+
+
 
 </body>
 </html>

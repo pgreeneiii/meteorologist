@@ -18,6 +18,9 @@ class MeteorologistController < ApplicationController
    latitude = parsed_data["results"][0]["geometry"]["location"]["lat"]
    longitude = parsed_data["results"][0]["geometry"]["location"]["lng"]
 
+   @lat = latitude
+   @lng = longitude
+
    api_key="6519f6b2b4c0a21742a2f867fc16d9f7"
    url="https://api.darksky.net/forecast/#{api_key}/#{latitude},#{longitude}"
 
